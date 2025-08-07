@@ -1,0 +1,31 @@
+{% if prompt %}
+    <div class="section">
+        <h3> Prompt envoyé au LLM :</h3>
+        <pre><code class="language-java">{{ prompt }}</code></pre>
+    </div>
+    {% endif %}
+    <div class="section">
+      <h3> 🔧 Code du diagramme de classe(structurel)  :</h3>
+      <div class="editable-block" contenteditable="true" oninput="highlightEditable(this)">
+           <pre><code class="language-java">// Collez ici votre code Java...</code></pre>
+      </div>
+    </div>
+
+    <div class="section">
+        <h3>Code complet :</h3>
+        <div class="editable-block" contenteditable="true" oninput="highlightEditable(this)">
+            <pre><code class="language-java">// Ou un autre bloc à remplir manuellement...</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="editable-block" contenteditable="true" oninput="highlightEditable(this)">
+            <pre><code class="language-java">// Ou un autre bloc à remplir manuellement...</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="editable-block" contenteditable="true" oninput="highlightEditable(this)">
+            <pre><code class="language-java">// Ou un autre bloc à remplir manuellement...</code></pre>
+        </div>
+    </div>

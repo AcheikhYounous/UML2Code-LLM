@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_M8tBIEvzEfCy2LRFt1SkpA" name="UML_1" visibility="package">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_XvCJAEv4EfCy2LRFt1SkpA" annotatedElement="_bgCVcEv4EfCy2LRFt1SkpA">
+    <body>calculerSurface cette fon&#xD;
+ction calcule et affiche la surface du rectangle en multipliant la longeur et la largeur&#xD;
+</body>
+  </ownedComment>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_M9H34EvzEfCy2LRFt1SkpA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Sj7vYEvzEfCy2LRFt1SkpA" name="Rectangle">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cDaIQEv4EfCy2LRFt1SkpA" name="largeur" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cbf4IEv4EfCy2LRFt1SkpA" name="longueur" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_bgCVcEv4EfCy2LRFt1SkpA" name="calculerSurface"/>
+  </packagedElement>
+</uml:Model>

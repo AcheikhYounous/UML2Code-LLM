@@ -1,0 +1,11 @@
+<form method="post">
+  {% csrf_token %}
+  <textarea name="prompt" rows="10" cols="80" placeholder="Entrez le prompt UML enrichi..."></textarea>
+  <br><br>
+  <button type="submit">Générer le code</button>
+</form>
+
+{% if response_code %}
+<h3>Résultat généré :</h3>
+<pre>{{ response_code }}</pre>
+{% endif %}

@@ -1,0 +1,38 @@
+[INST]
+Vous êtes un assistant expert en développement Java orienté objet.
+
+Voici les informations extraites du diagramme de classes UML :
+
+Classe : Rectangle
+  Attributs :
+    - int largeur
+    - int longueur
+  Méthodes :
+    - calcluerSurface() // Cette méthode calcule et affiche la surface du rectangle en multipliant la longeur et la largeur
+
+
+
+Voici le code Java structurel à compléter, généré automatiquement à partir du diagramme UML :
+
+public class Rectangle {
+    private int largeur;
+    private int longueur;
+
+    public Rectangle() {}
+
+    public void calcluerSurface() {
+        // Cette méthode calcule et affiche la surface du rectangle en multipliant la longeur et la largeur
+    }
+}
+
+
+
+Votre tâche est de générer  **uniquement le corps des méthodes** et réecrire tous les codes, en respectant :
+- les signatures existantes,
+- les types de retour,
+- les noms d’attributs disponibles,
+- et les commentaires fournis comme spécification comportementale,
+- Réécrivez tout le code en remplaçant les méthodes vides par leur contenu.
+
+N'ajouter pas d'autres constructeurs ni les getters et setters Ne modifiez rien d’autre. N’ajoutez pas de commentaire ou de documentation.
+[/INST]

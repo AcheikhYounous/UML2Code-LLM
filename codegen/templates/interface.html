@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Générateur UML → Code</title>
+
+    <!-- 🎨 Highlight.js thème style VSCode (atom-one-dark) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            margin: 2rem;
+        }
+
+        h2, h3 {
+            color: #61dafb;
+        }
+
+        form {
+            background-color: #252526;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        input[type="file"] {
+            padding: 0.5rem;
+            border: 1px solid #3c3c3c;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #ccc;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 0.2rem;
+        }
+
+        pre code {
+            display: block;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 8px;
+        }
+
+        .code-pair {
+    display: flex;
+    gap: 2rem; /* espace entre les blocs */
+    flex-wrap: wrap; /* pour que ça passe en vertical si l'écran est petit */
+}
+
+.code-box {
+    flex: 1 1 45%; /* prend 45% de largeur, adaptable */
+    min-width: 300px;
+}
+
+        
+
+
+    </style>
+</head>
+<body>
+
+    <h2>🛠️ Générateur de Code a partir du diagramme de classes</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="xmi_file">📁 Charger un fichier UML (.xmi) :</label>
+        <input type="file" name="xmi_file" required>
+        <button type="submit"> Générer</button>
+    </form>
+
+    {% if structure_code and llm_code %}
+<div class="code-pair">
+    <div class="code-box">
+        <h3>🔧 Code du diagramme de classe (structurel) :</h3>
+        <pre><code class="language-java">{{ structure_code }}</code></pre>
+    </div>
+    <div class="code-box">
+        <h3>🤖 Code complet :</h3>
+        <pre><code class="language-java">{{ llm_code }}</code></pre>
+    </div>
+</div>
+{% elif structure_code %}
+<div class="section">
+    <h3>🔧 Code du diagramme de classe (structurel) :</h3>
+    <pre><code class="language-java">{{ structure_code }}</code></pre>
+</div>
+{% elif llm_code %}
+<div class="section">
+    <h3>🤖 Code complet :</h3>
+    <pre><code class="language-java">{{ llm_code }}</code></pre>
+</div>
+{% endif %}
+
+
+ 
+
+
+    <!-- 📦 Highlight.js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script>
+    function highlightEditable(container) {
+        // Trouver le bloc <code> à l’intérieur
+        const codeElement = container.querySelector("code");
+
+        // Enregistrer le curseur
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+        const cursorOffset = range.startOffset;
+
+        // Reprendre le texte, re-nettoyer
+        const rawText = codeElement.innerText;
+
+        // Nettoyer le code (éviter les balises ajoutées)
+        codeElement.textContent = rawText;
+
+        // Appliquer highlight.js
+        hljs.highlightElement(codeElement);
+
+        // Restaurer le curseur (facultatif mais utile)
+        const textNode = codeElement.firstChild;
+        if (textNode) {
+            const newRange = document.createRange();
+            newRange.setStart(textNode, Math.min(cursorOffset, textNode.length));
+            newRange.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+        }
+    }
+    </script>
+
+
+</body>
+</html>
