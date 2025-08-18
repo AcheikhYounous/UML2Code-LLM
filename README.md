@@ -16,4 +16,4 @@ This project aims to:
 - Retrieve and insert **generated method bodies**, producing complete Java classes
 
 
-![System Architecture](vue-d-ensemble.png)
+![System Architecture](overview.png)
